@@ -16,6 +16,7 @@ export class OfficesComponent  {
   time: string;
   model: string;
   done = false;
+  data: any = {};
 
   constructor(private httpService: HttpService) {
   }
@@ -31,6 +32,7 @@ export class OfficesComponent  {
       this.model = data.model;
       this.done = true;
       this.arrTab = data.arrTab;
+      this.data = data;
     });
   }
 

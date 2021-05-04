@@ -1,1 +1,6 @@
-<p>offices works!</p>
+<div *ngIf="done">Время = {{time}}</div>
+<div *ngIf="done">Модель = {{model}}</div>
+<div class="form-group">
+  <button class="btn btn-default" (click)="submit()">Сформировать</button>
+</div>
+<div *ngIf="done">Обьект = {{arrTab | json }}</div>
