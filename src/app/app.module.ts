@@ -2,13 +2,22 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { OfficesComponent } from './components/offices/offices.component';
+import { RouterModule } from '@angular/router';
+import {AppRoutingModule} from './app-routing.module';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OfficesComponent,
+    NotfoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
