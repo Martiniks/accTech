@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { OfficesComponent } from './components/offices/offices.component';
-import { RouterModule } from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
   imports: [
     BrowserModule,
     RouterModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {tap} from 'rxjs/operators';
 import {HttpService} from '../../services/http.service';
 
@@ -7,20 +7,26 @@ import {HttpService} from '../../services/http.service';
   templateUrl: './offices.component.html',
   styleUrls: ['./offices.component.scss']
 })
-export class OfficesComponent implements OnInit {
+export class OfficesComponent  {
+  // implements OnInit
   // массив исключений для вывода
   exclude = ['director', 'zamdir', 'glbuh'];
 
   arrTab: [];
   time: string;
   model: string;
-  done: boolean = false;
+  done = false;
 
   constructor(private httpService: HttpService) {
   }
 
-  submit() {
-    this.httpService.getSum().pipe(tap(val => console.log(val))).subscribe((data: any) => {
+  // ngOnInit(): void {
+  //      throw new Error('Method not implemented.');
+  //  }
+
+
+  submit(): void {
+    this.httpService.getTab().pipe(tap(val => console.log(val))).subscribe((data: any) => {
       this.time = data.time;
       this.model = data.model;
       this.done = true;
