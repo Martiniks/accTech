@@ -8,6 +8,8 @@ import { OfficesComponent } from './components/offices/offices.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { OfficesContainer } from './components/offices/offices.container';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { OfficesContainer } from './components/offices/offices.container';
     RouterModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

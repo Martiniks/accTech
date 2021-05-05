@@ -1,7 +1,7 @@
 <div *ngIf="data">Время = {{data.time}}</div>
 <div *ngIf="data">Код = {{data.model}}</div>
 <div class="form-group m-2">
-  <button class="btn btn-outline-primary btn-sm" (click)="click()">Сформировать</button>
+  <button mat-raised-button color="primary" (click)="click()">Сформировать</button>
 </div>
 <div *ngIf="data">
   <table *ngIf="data.arrTab?.length" class="table table-bordered  table-sm">
