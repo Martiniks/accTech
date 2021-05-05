@@ -1,39 +1,23 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { tap } from 'rxjs/operators';
-import { HttpService } from '../../services/http.service';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { IData } from './offices.container';
 
 @Component({
-  selector: 'app-offices',
+  selector: 'app-offices-dumb',
   templateUrl: './offices.component.html',
   styleUrls: ['./offices.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OfficesComponent {
-  // implements OnInit
   // массив исключений для вывода
   exclude = ['director', 'zamdir', 'glbuh'];
+  @Input() data: IData | null = null;
+  @Output() submit = new EventEmitter<any>();
 
-  arrTab = [];
-  time: string | undefined;
-  model: string | undefined;
-  done = false;
-  data: any = {};
-
-  constructor(private httpService: HttpService) {
+  constructor() {
   }
 
-  // ngOnInit(): void {
-  //      throw new Error('Method not implemented.');
-  //  }
-
-  submit(): void {
-    this.httpService.getTab().pipe(tap(val => console.log(val))).subscribe((data: any) => {
-      this.time = data.time;
-      this.model = data.model;
-      this.done = true;
-      this.arrTab = data.arrTab;
-      this.data = data;
-    });
+  click(): void {
+    this.submit.emit({a: 'A'});
   }
 
   // функция перевода ключей объекта в массив и фильтрации по массиву исключений

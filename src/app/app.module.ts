@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { OfficesComponent } from './components/offices/offices.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { OfficesContainer } from './components/offices/offices.container';
 
 @NgModule({
   declarations: [
     AppComponent,
     OfficesComponent,
+    OfficesContainer,
     NotfoundComponent,
   ],
   imports: [
