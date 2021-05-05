@@ -13,9 +13,9 @@ export class OfficesComponent {
   // массив исключений для вывода
   exclude = ['director', 'zamdir', 'glbuh'];
 
-  arrTab: [];
-  time: string;
-  model: string;
+  arrTab = [];
+  time: string | undefined;
+  model: string | undefined;
   done = false;
   data: any = {};
 
@@ -41,7 +41,7 @@ export class OfficesComponent {
     return Object.keys(row).filter(key => !this.exclude.includes(key));
   }
 
-  trackByFn(index: number, result: any): string {
+  trackByFn(_index: number, result: any): string {
     return result.id;
   }
 }
