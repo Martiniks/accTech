@@ -14,7 +14,7 @@
     <tr *ngFor="let row of arrTab; let i=index; trackBy:trackByFn">
       <td>{{i + 1}}</td>
       <td *ngFor="let column of keys(row); let j=index">
-        {{row[column] }}
+        {{row[column]}}
       </td>
     </tr>
   </table>

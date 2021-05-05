@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import {tap} from 'rxjs/operators';
-import {HttpService} from '../../services/http.service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { tap } from 'rxjs/operators';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-offices',
   templateUrl: './offices.component.html',
-  styleUrls: ['./offices.component.scss']
+  styleUrls: ['./offices.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OfficesComponent  {
+export class OfficesComponent {
   // implements OnInit
   // массив исключений для вывода
   exclude = ['director', 'zamdir', 'glbuh'];
@@ -24,7 +25,6 @@ export class OfficesComponent  {
   // ngOnInit(): void {
   //      throw new Error('Method not implemented.');
   //  }
-
 
   submit(): void {
     this.httpService.getTab().pipe(tap(val => console.log(val))).subscribe((data: any) => {
