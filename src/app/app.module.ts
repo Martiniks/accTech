@@ -11,7 +11,9 @@ import { OfficesContainer } from './components/offices/offices.container';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
 import { AboutComponent } from './components/about/about.component';
+import { Offices2Component } from './components/offices2/offices2.component';
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import { AboutComponent } from './components/about/about.component';
     OfficesContainer,
     NotfoundComponent,
     AboutComponent,
+    Offices2Component,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { AboutComponent } from './components/about/about.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
