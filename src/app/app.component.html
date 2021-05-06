@@ -1,10 +1,13 @@
-<div class="border border-info">
-  <nav class="nav nav-pills ">
-    <a class="nav-item nav-link" routerLink=""> Главная</a>
-    <a class="nav-item nav-link" routerLink="/offices"> Представительства</a>
-  </nav>
+<div class="my-menu">
+<a mat-raised-button routerLink="" >Главная</a>
+<a mat-raised-button [matMenuTriggerFor]="menu">Справочники</a>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>Справочник 1</button>
+    <button mat-menu-item routerLink="/offices">Представительства</button>
+</mat-menu>
 </div>
-<div class="container border border-dark">
+<div >
   <router-outlet></router-outlet>
 </div>
+
 

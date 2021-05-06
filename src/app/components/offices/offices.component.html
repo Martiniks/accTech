@@ -1,10 +1,10 @@
 <div *ngIf="data">Время = {{data.time}}</div>
 <div *ngIf="data">Код = {{data.model}}</div>
-<div class="form-group m-2">
+<div >
   <button mat-raised-button color="primary" (click)="click()">Сформировать</button>
 </div>
-<div *ngIf="data">
-  <table *ngIf="data.arrTab?.length" class="table table-bordered  table-sm">
+<div class="my-flex-container" *ngIf="data">
+  <table *ngIf="data.arrTab?.length" >
     <tr>
       <th>#</th>
       <th *ngFor="let title of keys(data.arrTab[0])">

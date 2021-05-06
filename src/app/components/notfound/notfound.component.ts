@@ -9,16 +9,13 @@ import { Router } from '@angular/router';
 })
 export class NotfoundComponent implements OnInit {
 
-
   constructor(private router: Router) {
   }
 
-  goHome(){
-
+  goHome() {
     this.router.navigate(['']);
   }
 
   ngOnInit(): void {
   }
-
-}
+ }

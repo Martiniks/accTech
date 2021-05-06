@@ -2,3 +2,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.my-flex-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.my-flex-block{
+  border: 1px double darkblue;
+  padding: 2px; /* Поля вокруг текста */
+  margin: 1px; /* Отступы вокруг блока */
+}
+
+img {
+  max-width: 100%;
+  padding: 10px;
+  height: auto;
+}
