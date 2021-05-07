@@ -1,38 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { tap } from 'rxjs/operators';
+import { HttpService } from '../../services/http.service';
 
 export interface PeriodicElement {
+  id: string;
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  adres: string;
+  director?: string;
+  glbuh?: string;
+  zamdir?: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  { "id": "400", "name": "Филиал Белгосстраха по Гродненской области", "adres": "230012, г. Гродно, ул. Доватора, 2/2", "director": "", "zamdir": "", "glbuh": "" },
+  { "id": "401", "name": " Представительство по г.Гродно", "adres": "230012, г. Гродно, ул. Доватора, 2/2", "director": "", "zamdir": "", "glbuh": "" },
+  { "id": "403", "name": " Представительство по Волковыскому району", "adres": "231900, г. Волковыск, ул. Медведева, 3", "director": "", "zamdir": "", "glbuh": "" },
+  { "id": "404", "name": " Представительство по Вороновскому району", "adres": "231391, г.п. Вороново, ул. Калинина, 4/а", "director": "", "zamdir": "", "glbuh": "" },
+  { "id": "405", "name": " Представительство по Гродненскому району", "adres": "230025, г. Гродно, пр. Космонавтов, 37а", "director": "", "zamdir": "", "glbuh": "" },
+  { "id": "406", "name": " Представительство по Дятловскому району", "adres": "231471, г. Дятлово, ул. Первомайская, 1", "director": "", "zamdir": "", "glbuh": "" },
 ];
 
 @Component({
   selector: 'app-offices2',
   templateUrl: './offices2.component.html',
-  styleUrls: ['./offices2.component.scss']
+  styleUrls: ['./offices2.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Offices2Component implements OnInit {
+export class Offices2Component  {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['id', 'name', 'adres'];
+  dataSource: PeriodicElement[]  = ELEMENT_DATA;
+  done =false;
 
-  constructor() { }
+  constructor(private httpService: HttpService) {
+    console.log('>>1 constructor');
+    this.getTab();
+  }
 
-  ngOnInit(): void {
+  getTab():void {
+    this.httpService.getTab().pipe(tap(val => console.log(val))).subscribe((data: any) => {
+      this.dataSource = data.arrTab;
+      this.done=true;
+    });
+      console.log('>>2 gettab');
   }
 
 }
