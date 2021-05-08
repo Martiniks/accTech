@@ -1,41 +1,22 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { tap } from 'rxjs/operators';
-import { HttpService } from '../../services/http.service';
-
-export interface PeriodicElement {
-  id: string;
-  name: string;
-  adres: string;
-  director?: string;
-  glbuh?: string;
-  zamdir?: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [];
+import { ChangeDetectionStrategy, Component, EventEmitter, Input,  Output } from '@angular/core';
+import { IData2 } from './offices2.Container';
 
 @Component({
-  selector: 'app-offices2',
+  selector: 'app-offices2-dumb',
   templateUrl: './offices2.component.html',
   styleUrls: ['./offices2.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Offices2Component  {
+  @Input() data: IData2 | null = null;
+  @Output() submit = new EventEmitter<any>();
 
   displayedColumns: string[] = ['id', 'name', 'adres'];
-  dataSource: PeriodicElement[]  = ELEMENT_DATA;
-  done =false;
-
-  constructor(private httpService: HttpService) {
-    console.log('>>1 constructor');
-    this.getTab();
+  constructor() {
   }
 
-  getTab():void {
-    this.httpService.getTab().pipe(tap(val => console.log(val))).subscribe((data: any) => {
-      this.dataSource = data.arrTab;
-      this.done=true;
-    });
-      console.log('>>2 gettab');
+  click(): void {
+    this.submit.emit({a: 'A'});
   }
 
 }

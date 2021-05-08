@@ -14,6 +14,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { AboutComponent } from './components/about/about.component';
 import { Offices2Component } from './components/offices2/offices2.component';
+import { Offices2Container } from './components/offices2/offices2.Container';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { Offices2Component } from './components/offices2/offices2.component';
     NotfoundComponent,
     AboutComponent,
     Offices2Component,
+    Offices2Container,
   ],
   imports: [
     BrowserModule,
