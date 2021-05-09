@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input,  Output } from '@angular/core';
-import { IData2 } from './offices2.Container';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { IData2 } from './offices2sm.container';
 
 @Component({
   selector: 'app-offices2-dumb',
@@ -9,14 +9,15 @@ import { IData2 } from './offices2.Container';
 })
 export class Offices2Component  {
   @Input() data: IData2 | null = null;
-  @Output() submit = new EventEmitter<any>();
+  // @Output() submit = new EventEmitter<any>();
 
   displayedColumns: string[] = ['id', 'name', 'adres'];
   constructor() {
   }
 
-  click(): void {
-    this.submit.emit({a: 'A'});
-  }
+ //  Кнопку пока не используем
+ // click(): void {
+ //    this.submit.emit({a: 'A'});
+ // }
 
 }

@@ -14,7 +14,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { AboutComponent } from './components/about/about.component';
 import { Offices2Component } from './components/offices2/offices2.component';
-import { Offices2Container } from './components/offices2/offices2.Container';
+import { Offices2Container } from './components/offices2/offices2sm.container';
 
 
 @NgModule({
