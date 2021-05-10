@@ -20,6 +20,9 @@ import { TableSortingExample } from './components/testsort/testsort.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { OfficesEditComponent } from './components/offices-edit/offices-edit.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,6 +35,7 @@ import { MatInputModule } from '@angular/material/input';
     Offices2Component,
     Offices2Container,
     TableSortingExample,
+    OfficesEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +50,8 @@ import { MatInputModule } from '@angular/material/input';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonToggleModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,11 +1,14 @@
 <div class="my-menu">
-<a mat-raised-button routerLink="" >Главная</a>
-<a mat-raised-button [matMenuTriggerFor]="menu">Справочники</a>
-<mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/offices2">Таблица Mat Представительства</button>
-    <button mat-menu-item routerLink="/offices">Представительства</button>
-    <button mat-menu-item routerLink="/testsort">Тест сортировки</button>
-</mat-menu>
+    <mat-button-toggle-group name="mainmenu" aria-label="Font Style">
+        <mat-button-toggle routerLink="">Главная</mat-button-toggle>
+        <mat-button-toggle [matMenuTriggerFor]="menu">Справочники</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/offices2">Таблица Mat Представительства</button>
+        <button mat-menu-item routerLink="/offices">Представительства</button>
+        <button mat-menu-item routerLink="/testsort">Тест сортировки</button>
+    </mat-menu>
 </div>
 <div >
   <router-outlet></router-outlet>

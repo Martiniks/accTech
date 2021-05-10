@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
-import { IData2, PeriodicElement } from './offices2sm.container';
+import { IData2, OfficesElement } from './offices2sm.container';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -13,9 +13,9 @@ import { MatSort } from '@angular/material/sort';
 export class Offices2Component  {
   @Input() data: IData2 | null = null;
   @Output() submit = new EventEmitter<any>();
-  dataSource = new MatTableDataSource<PeriodicElement>([]);
+  dataSource = new MatTableDataSource<OfficesElement>([]);
 
-  displayedColumns: string[] = ['id', 'name', 'adres'];
+  displayedColumns: string[] = ['edit', 'id', 'name', 'adres'];
   constructor() {
    }
   // @ts-ignore
@@ -34,7 +34,7 @@ export class Offices2Component  {
   }
 
  click(): void {
-    this.submit.emit({a: 'A'});
+    //this.submit.emit({a: 'A'});
    if (this.data) {
      this.dataSource.data = this.data.arrTab;
    }

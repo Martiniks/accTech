@@ -1,0 +1,16 @@
+<div class=" mat-form-field mat-elevation-z4" *ngIf="office">
+  <h2>{{office.id}} {{office.name | uppercase}} </h2>
+  <div class="edited"><span>id: </span>{{office.id}}</div>
+  <div class="edited">
+      <label for="office-name">office name: </label>
+      <input id="office-name" [(ngModel)]="office.name" placeholder="office name"/>
+      <label for="office-adres">office adres: </label>
+      <input id="office-adres" [(ngModel)]="office.adres" placeholder="office adres"/>
+
+
+  </div>
+  <div class="edited">
+      <button mat-stroked-button color="accent" (click)="goBack()">go back</button>
+      <button mat-stroked-button color="accent" (click)="save()">save</button>
+  </div>
+</div>

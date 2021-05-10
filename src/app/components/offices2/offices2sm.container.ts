@@ -4,13 +4,13 @@ import { HttpService } from '../../services/http.service';
 import { Observable } from 'rxjs';
 
 export interface IData2 {
-  arrTab: PeriodicElement[];
+  arrTab: OfficesElement[];
   time: string;
   model: string;
 }
 
 
-export interface PeriodicElement {
+export interface OfficesElement {
   id: string;
   name: string;
   adres: string;
@@ -43,7 +43,7 @@ export class Offices2Container implements OnInit {
   }
 
   ngOnInit() {
-  //  this.submit('вызвано из = ngOnInit');
+    this.submit('вызвано из = ngOnInit');
   }
 
 }
