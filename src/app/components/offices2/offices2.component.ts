@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IData2 } from './offices2sm.container';
+import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { IData2, PeriodicElement } from './offices2sm.container';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-offices2-dumb',
@@ -9,15 +11,25 @@ import { IData2 } from './offices2sm.container';
 })
 export class Offices2Component  {
   @Input() data: IData2 | null = null;
-  // @Output() submit = new EventEmitter<any>();
+  @Output() submit = new EventEmitter<any>();
+  dataSource = new MatTableDataSource<PeriodicElement>([]);
 
   displayedColumns: string[] = ['id', 'name', 'adres'];
   constructor() {
+   }
+  // @ts-ignore
+  @ViewChild(MatSort) sort: MatSort;
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
 
- //  Кнопку пока не используем
- // click(): void {
- //    this.submit.emit({a: 'A'});
- // }
+ click(): void {
+    this.submit.emit({a: 'A'});
+   if (this.data) {
+     this.dataSource.data = this.data.arrTab;
+   }
+   console.log('>>из клика dataSource.data==', this.dataSource.data );
+ }
 
 }

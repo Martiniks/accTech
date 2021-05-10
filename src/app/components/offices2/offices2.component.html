@@ -1,33 +1,32 @@
-<!-- Кнопка пока не нужна. Данные получаем при создании компонента ngOninit
 <div >
     <button mat-raised-button color="primary" (click)="click()">Сформировать</button>
-</div>-->
+</div>
 
-<div class="my-flex-container" *ngIf="data" >
-<table mat-table [dataSource]="data.arrTab" class="mat-elevation-z8">
+<!--<div class="my-flex-container" *ngIf="data" >-->
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- Id Column -->
     <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
 
     <!-- Adres Column -->
     <ng-container matColumnDef="adres">
-        <th mat-header-cell *matHeaderCellDef> Adres </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Adres </th>
         <td mat-cell *matCellDef="let element"> {{element.adres}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-</div>
+<!--</div>-->

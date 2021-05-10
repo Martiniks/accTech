@@ -4,28 +4,28 @@ import { HttpService } from '../../services/http.service';
 import { Observable } from 'rxjs';
 
 export interface IData2 {
-  arrTab: any[];
+  arrTab: PeriodicElement[];
   time: string;
   model: string;
 }
 
-// не используется пока - или совсем не нужен
-// export interface PeriodicElement {
-//   id: string;
-//   name: string;
-//   adres: string;
-//   director?: string;
-//   glbuh?: string;
-//   zamdir?: string;
-// }
+
+export interface PeriodicElement {
+  id: string;
+  name: string;
+  adres: string;
+  director?: string;
+  glbuh?: string;
+  zamdir?: string;
+}
 
 @Component({
   selector: 'app-offices2',
   template: `
     <app-offices2-dumb
       [data]="data$ | async"
+      (submit)="submit($event)"
     >... идет загрузка</app-offices2-dumb>
-    <!--      (submit)="submit($event)"-->
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -43,7 +43,7 @@ export class Offices2Container implements OnInit {
   }
 
   ngOnInit() {
-    this.submit('вызвано из = ngOnInit');
+  //  this.submit('вызвано из = ngOnInit');
   }
 
 }
