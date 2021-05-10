@@ -17,6 +17,9 @@ import { AboutComponent } from './components/about/about.component';
 import { Offices2Component } from './components/offices2/offices2.component';
 import { Offices2Container } from './components/offices2/offices2sm.container';
 import { TableSortingExample } from './components/testsort/testsort.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -40,6 +43,9 @@ import { TableSortingExample } from './components/testsort/testsort.component';
     MatMenuModule,
     MatTableModule,
     MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
