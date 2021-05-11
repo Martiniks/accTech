@@ -24,7 +24,6 @@ export interface OfficesElement {
   template: `
     <app-offices2-dumb
       [data]="data$ | async"
-      (submit)="submit($event)"
     >... идет загрузка</app-offices2-dumb>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

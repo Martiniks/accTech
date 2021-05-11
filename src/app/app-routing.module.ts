@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { OfficesContainer } from './components/offices/offices.container';
 import { AboutComponent } from './components/about/about.component';
-import { Offices2Container } from './components/offices2/offices2sm.container';
+import { Offices2Container } from './components/offices2/offices2.container';
 import { TableSortingExample } from './components/testsort/testsort.component';
 import { OfficesEditComponent } from './components/offices-edit/offices-edit.component';
 

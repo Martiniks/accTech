@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { OfficesElement } from '../offices2/offices2sm.container';
+import { OfficesElement } from '../offices2/offices2.container';
 import { HttpService } from '../../services/http.service';
 import { tap } from 'rxjs/operators';
 

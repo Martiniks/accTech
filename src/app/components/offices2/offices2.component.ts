@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
-import { IData2, OfficesElement } from './offices2sm.container';
+import { AfterViewInit, ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
+import { IData2, OfficesElement } from './offices2.container';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,20 +10,25 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./offices2.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Offices2Component  {
-  @Input() data: IData2 | null = null;
-  @Output() submit = new EventEmitter<any>();
+export class Offices2Component implements AfterViewInit {
   dataSource = new MatTableDataSource<OfficesElement>([]);
-
   displayedColumns: string[] = ['edit', 'id', 'name', 'adres'];
+  @ViewChild(MatSort) sort: MatSort | null = null;
+  @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
+
   constructor() {
-   }
-  // @ts-ignore
-  @ViewChild(MatSort) sort: MatSort;
-  // @ts-ignore
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  }
+
+  @Input() set data(value: IData2 | null) {
+    if (value) {
+      this.dataSource.data = value.arrTab;
+    }
+  };
 
   ngAfterViewInit() {
+    if (!this.dataSource) {
+      return;
+    }
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
@@ -32,13 +37,5 @@ export class Offices2Component  {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
- click(): void {
-    //this.submit.emit({a: 'A'});
-   if (this.data) {
-     this.dataSource.data = this.data.arrTab;
-   }
-   console.log('>>из клика dataSource.data==', this.dataSource.data );
- }
 
 }

@@ -15,7 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { AboutComponent } from './components/about/about.component';
 import { Offices2Component } from './components/offices2/offices2.component';
-import { Offices2Container } from './components/offices2/offices2sm.container';
+import { Offices2Container } from './components/offices2/offices2.container';
 import { TableSortingExample } from './components/testsort/testsort.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
