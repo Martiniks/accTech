@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { OfficesElement } from '../offices2/offices2.container';
 import { HttpService } from '../../services/http.service';
 import { tap } from 'rxjs/operators';
+import { OfficesElement } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-offices-edit',
@@ -18,7 +18,8 @@ export class OfficesEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private httpService: HttpService,
-    private location: Location
+    private location: Location,
+    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
@@ -26,10 +27,15 @@ export class OfficesEditComponent implements OnInit {
   }
 
   getElement(): void {
-    // @ts-ignore
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.httpService.getElement(id).pipe(tap(val => console.log(val)))
-      .subscribe(office => this.office = office);
+    const id = this.route.snapshot.paramMap.get('id');
+    if (!id) {
+      return;
+    }
+    this.httpService.getElement(+id).pipe(tap(val => console.log(val)))
+      .subscribe(office => {
+        this.office = office;
+        this.cdr.markForCheck();
+      });
   }
 
   goBack(): void {

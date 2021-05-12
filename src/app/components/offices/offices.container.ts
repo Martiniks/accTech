@@ -1,13 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { IData } from 'src/app/interfaces';
 import { HttpService } from '../../services/http.service';
-
-export interface IData {
-  arrTab: any[];
-  time: string;
-  model: string;
-}
 
 @Component({
   selector: 'app-offices',

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { IData } from './offices.container';
+import { IData } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-offices-dumb',
@@ -21,8 +21,8 @@ export class OfficesComponent {
   }
 
   // функция перевода ключей объекта в массив и фильтрации по массиву исключений
-  keys(row: any): string[] {
-    return Object.keys(row).filter(key => !this.exclude.includes(key));
+  keys<T>(row: T): (keyof T)[] {
+    return Object.keys(row).filter(key => !this.exclude.includes(key)) as (keyof T)[];
   }
 
   trackByFn(_index: number, result: any): string {

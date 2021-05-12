@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { OfficesElement } from '../components/offices2/offices2.container';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { OfficesElement } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',

@@ -2,22 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { HttpService } from '../../services/http.service';
 import { Observable } from 'rxjs';
-
-export interface IData2 {
-  arrTab: OfficesElement[];
-  time: string;
-  model: string;
-}
-
-
-export interface OfficesElement {
-  id: string;
-  name: string;
-  adres: string;
-  director?: string;
-  glbuh?: string;
-  zamdir?: string;
-}
+import { IData } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-offices2',
@@ -29,7 +14,7 @@ export interface OfficesElement {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Offices2Container implements OnInit {
-  data$: Observable<IData2> | undefined;
+  data$: Observable<IData> | undefined;
 
   constructor(
     private httpService: HttpService,

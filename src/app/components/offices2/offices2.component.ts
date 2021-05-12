@@ -1,8 +1,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
-import { IData2, OfficesElement } from './offices2.container';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { IData, OfficesElement } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-offices2-dumb',
@@ -13,16 +13,22 @@ import { MatSort } from '@angular/material/sort';
 export class Offices2Component implements AfterViewInit {
   dataSource = new MatTableDataSource<OfficesElement>([]);
   displayedColumns: string[] = ['edit', 'id', 'name', 'adres'];
+  iData: IData | null = null;
   @ViewChild(MatSort) sort: MatSort | null = null;
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
   constructor() {
   }
 
-  @Input() set data(value: IData2 | null) {
+  get data(): IData | null {
+    return this.iData;
+  }
+
+  @Input() set data(value: IData | null) {
     if (value) {
       this.dataSource.data = value.arrTab;
     }
+    this.iData = value;
   };
 
   ngAfterViewInit() {
