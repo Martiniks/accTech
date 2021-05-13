@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { OfficesEditComponent } from './components/offices-edit/offices-edit.component';
 import { FormsModule } from '@angular/forms';
+import { DevicesContainer } from './components/devices/devices.container';
+import { DevicesComponent } from './components/devices/devices.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { FormsModule } from '@angular/forms';
     Offices2Container,
     TableSortingExample,
     OfficesEditComponent,
+    DevicesContainer,
+    DevicesComponent,
   ],
   imports: [
     BrowserModule,

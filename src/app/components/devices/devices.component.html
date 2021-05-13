@@ -1,3 +1,11 @@
+<!--<div *ngIf="data">Обьект = {{data.arrPodr | json }}</div>
+<div *ngIf="data">Обьект = {{data.arrTip | json }}</div>
+<div *ngIf="data">Обьект = {{data.arrStat | json }}</div>-->
+<!--<div *ngIf="iDevicesData">Обьект = {{iDevicesData.arrDevices | json }}</div>-->
+
+
+
+
 <div class="example-half-width mat-elevation-z2">
     <mat-form-field appearance="outline">
         <mat-label>Фильтр</mat-label>
@@ -21,28 +29,29 @@
           </td>
       </ng-container>
 
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
+<!--      ['podr_name', 'tip_name', 'model', 'inv_n', 'edit',]-->
+    <!-- podr_name Column -->
+    <ng-container matColumnDef="podr_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Код </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.podr_name}} </td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Наименование </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <!-- tip_name Column -->
+    <ng-container matColumnDef="tip_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Тип </th>
+        <td mat-cell *matCellDef="let element"> {{element.tip_name}} </td>
     </ng-container>
 
-    <!-- Adres Column -->
-    <ng-container matColumnDef="adres">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Адрес </th>
-        <td mat-cell *matCellDef="let element"> {{element.adres}} </td>
+    <!-- model Column -->
+    <ng-container matColumnDef="model">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Модель </th>
+        <td mat-cell *matCellDef="let element"> {{element.model}} </td>
     </ng-container>
 
-    <!-- Adres Column -->
-    <ng-container matColumnDef="director">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> ФИО Директора </th>
-      <td mat-cell *matCellDef="let element"> {{element.director}} </td>
+    <!-- inv_n Column -->
+    <ng-container matColumnDef="inv_n">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Инв No </th>
+      <td mat-cell *matCellDef="let element"> {{element.inv_n}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>

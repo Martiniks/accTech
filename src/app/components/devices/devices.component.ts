@@ -1,34 +1,35 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
+import { DevicesData } from '../../interfaces';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { IData, OfficesElement } from 'src/app/interfaces';
+import { MatPaginator } from '@angular/material/paginator';
+
 
 @Component({
-  selector: 'app-offices2-dumb',
-  templateUrl: './offices2.component.html',
-  styleUrls: ['./offices2.component.scss'],
+  selector: 'app-devices-dumb',
+  templateUrl: './devices.component.html',
+  styleUrls: ['./devices.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Offices2Component implements AfterViewInit {
-  dataSource = new MatTableDataSource<OfficesElement>([]);
-  displayedColumns: string[] = ['id', 'name', 'adres', 'director', 'edit',];
-  iData: IData | null = null;
+
+export class DevicesComponent implements AfterViewInit {
+  dataSource = new MatTableDataSource<any>([]);
+  displayedColumns: string[] = ['podr_name', 'tip_name', 'model', 'inv_n', 'edit',];
+  iDevicesData: DevicesData | null = null;
   @ViewChild(MatSort) sort: MatSort | null = null;
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
   constructor() {
   }
-
-  get data(): IData | null {
-    return this.iData;
+  get data(): DevicesData | null {
+    return this.iDevicesData;
   }
 
-  @Input() set data(value: IData | null) {
+  @Input() set data(value: DevicesData | null) {
     if (value) {
-      this.dataSource.data = value.arrTab;
+      this.dataSource.data = value.arrDevices;
     }
-    this.iData = value;
+    this.iDevicesData = value;
   };
 
   ngAfterViewInit() {

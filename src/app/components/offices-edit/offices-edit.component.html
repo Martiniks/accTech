@@ -1,16 +1,37 @@
 <div class=" mat-form-field mat-elevation-z4" *ngIf="office">
-  <h2>{{office.id}} {{office.name | uppercase}} </h2>
-  <div class="edited"><span>id: </span>{{office.id}}</div>
-  <div class="edited">
-      <label for="office-name">office name: </label>
-      <input id="office-name" [(ngModel)]="office.name" placeholder="office name"/>
-      <label for="office-adres">office adres: </label>
-      <input id="office-adres" [(ngModel)]="office.adres" placeholder="office adres"/>
+    <h4 > {{office.id}} - {{office.name | uppercase}} </h4>
+    <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Наименование представительства</mat-label>
+        <input matInput #name maxlength="100" [(ngModel)]="office.name" placeholder="Наименование представительства">
+        <mat-hint align="end">{{name.value.length}} / 100</mat-hint>
+    </mat-form-field>
 
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Адрес представительства</mat-label>
+      <input matInput #adres maxlength="255" [(ngModel)]="office.adres" placeholder="Наименование представительства">
+      <mat-hint align="end">{{adres.value.length}} / 255</mat-hint>
+    </mat-form-field>
 
-  </div>
-  <div class="edited">
-      <button mat-stroked-button color="accent" (click)="goBack()">go back</button>
-      <button mat-stroked-button color="accent" (click)="save()">save</button>
+    <mat-form-field appearance="outline" class="example-half-width">
+        <mat-label>Директор представительства</mat-label>
+        <input matInput #director maxlength="50" [(ngModel)]="office.director" placeholder="ФИО директора представительства">
+        <mat-hint align="end">{{director.value.length}} / 50</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="example-half-width">
+        <mat-label>Заместитель директора представительства</mat-label>
+        <input matInput #zamdir maxlength="50" [(ngModel)]="office.zamdir" placeholder="ФИО зам.директора представительства">
+        <mat-hint align="end">{{zamdir.value.length}} / 50</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="example-half-width">
+        <mat-label>Главный бухгалтер представительства</mat-label>
+        <input matInput #glbuh maxlength="50" [(ngModel)]="office.glbuh" placeholder="ФИО гл.бухгалтера представительства">
+        <mat-hint align="end">{{glbuh.value.length}} / 50</mat-hint>
+    </mat-form-field>
+
+  <div class="edited" >
+      <button mat-stroked-button color="accent" (click)="goBack()">Вернуться</button>
+      <button mat-stroked-button color="accent" (click)="save()">Записать</button>
   </div>
 </div>

@@ -6,6 +6,7 @@ import { AboutComponent } from './components/about/about.component';
 import { Offices2Container } from './components/offices2/offices2.container';
 import { TableSortingExample } from './components/testsort/testsort.component';
 import { OfficesEditComponent } from './components/offices-edit/offices-edit.component';
+import { DevicesContainer } from './components/devices/devices.container';
 
 const routes: Routes = [
   // { path: '', pathMatch: 'full', redirectTo: 'offices' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'offices', component: OfficesContainer },
   { path: 'offices2', component: Offices2Container },
   { path: 'detail/:id', component: OfficesEditComponent },
+  { path: 'devices', component: DevicesContainer },
   { path: 'testsort', component: TableSortingExample },
   { path: '**', component: NotfoundComponent },
 ];

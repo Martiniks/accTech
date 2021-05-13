@@ -43,7 +43,8 @@ export class OfficesEditComponent implements OnInit {
   }
 
   save(): void {
-    // this.heroService.updateHero(this.hero)
-    //   .subscribe(() => this.goBack());
+     this.httpService.updateElement(this.office);
+     this.goBack()
+     //  .subscribe(() => this.goBack());
   }
 }
