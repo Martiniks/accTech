@@ -40,6 +40,15 @@ export class DevicesComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  // On input focus: setup filterPredicate to only filter by input column
+  setupFilter(column: string) {
+    this.dataSource.filterPredicate = (d: string, filter: string) => {
+      // @ts-ignore
+      const textToSearch = d[column] && d[column].toLowerCase() || '';
+      return textToSearch.indexOf(filter) !== -1;
+    };
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

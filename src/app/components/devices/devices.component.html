@@ -8,8 +8,8 @@
 
 <div class="example-half-width mat-elevation-z2">
     <mat-form-field appearance="outline">
-        <mat-label>Фильтр</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="поиск" #input>
+        <mat-label>Фильтр по модели</mat-label>
+        <input matInput (keyup)="applyFilter($event)" (focus)="setupFilter('model')" placeholder="поиск" #input>
     </mat-form-field>
 </div>
 
@@ -54,7 +54,7 @@
       <td mat-cell *matCellDef="let element"> {{element.inv_n}} </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+    <tr mat-header-row  *matHeaderRowDef="displayedColumns; sticky:true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
     <!-- Row shown when there is no matching data. -->
