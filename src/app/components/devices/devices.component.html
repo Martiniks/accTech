@@ -9,16 +9,16 @@
 <div class="example-half-width mat-elevation-z2">
     <mat-form-field appearance="outline">
         <mat-label>Фильтр по модели</mat-label>
-        <input matInput (keyup)="applyFilter($event)" (focus)="setupFilter('model')" placeholder="поиск" #input>
-<!--  для фильтрации одного столбца      (focus)="setupFilter('model')"-->
+        <input matInput  [formControl]="modelFilter"  placeholder="поиск" #input>
+<!--  для фильтрации одного столбца   (keyup)="applyFilter($event)"   (focus)="setupFilter('model')"-->
     </mat-form-field>
 </div>
 
 <div class="example-half-width mat-elevation-z2">
     <mat-form-field appearance="outline">
         <mat-label>Фильтр по типу</mat-label>
-        <input matInput (keyup)="applyFilter($event)" (focus)="setupFilter('tip_name')" placeholder="поиск" #input>
-        <!--  для фильтрации одного столбца      (focus)="setupFilter('tip_name')"-->
+        <input matInput  [formControl]="tipNameFilter"  placeholder="поиск" #input>
+        <!--  для фильтрации одного столбца  (keyup)="applyFilter($event)"    (focus)="setupFilter('tip_name')"-->
     </mat-form-field>
 </div>
 

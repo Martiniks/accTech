@@ -22,7 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { OfficesEditComponent } from './components/offices-edit/offices-edit.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DevicesContainer } from './components/devices/devices.container';
 import { DevicesComponent } from './components/devices/devices.component';
 
@@ -41,22 +41,23 @@ import { DevicesComponent } from './components/devices/devices.component';
     DevicesContainer,
     DevicesComponent,
   ],
-  imports: [
-    BrowserModule,
-    RouterModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonToggleModule,
-    FormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        RouterModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatTableModule,
+        MatSortModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonToggleModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
