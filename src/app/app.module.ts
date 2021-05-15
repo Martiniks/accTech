@@ -21,8 +21,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { OfficesEditComponent } from './components/offices-edit/offices-edit.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DevicesContainer } from './components/devices/devices.container';
 import { DevicesComponent } from './components/devices/devices.component';
 
@@ -55,6 +56,7 @@ import { DevicesComponent } from './components/devices/devices.component';
         MatFormFieldModule,
         MatInputModule,
         MatButtonToggleModule,
+        MatExpansionModule,
         FormsModule,
         ReactiveFormsModule,
     ],
