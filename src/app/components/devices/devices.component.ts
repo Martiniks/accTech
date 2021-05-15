@@ -28,6 +28,9 @@ export class DevicesComponent implements AfterViewInit {
   @Input() set data(value: DevicesData | null) {
     if (value) {
       this.dataSource.data = value.arrDevices;
+      console.log("set data 1>>",this.dataSource.filteredData);
+//      console.log("set _data 2>>",this.dataSource._filterData(['podr_name', 'tip_name', 'model', 'inv_n', ]));
+      console.log("set data 4>>",this.dataSource.filter);
     }
     this.iDevicesData = value;
   };
@@ -40,6 +43,7 @@ export class DevicesComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  // для фильтрации одного столбца
   // On input focus: setup filterPredicate to only filter by input column
   setupFilter(column: string) {
     this.dataSource.filterPredicate = (d: string, filter: string) => {
@@ -52,6 +56,7 @@ export class DevicesComponent implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    console.log("set data AF-1>>",this.dataSource.filteredData);
   }
 
 }
