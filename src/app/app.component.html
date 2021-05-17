@@ -1,7 +1,7 @@
-<div class="my-menu">
+<mat-toolbar class="my-menu" color="primary">
     <mat-button-toggle-group name="mainmenu" aria-label="Font Style">
-        <mat-button-toggle routerLink="">Главная</mat-button-toggle>
-        <mat-button-toggle [matMenuTriggerFor]="menu">Справочники</mat-button-toggle>
+        <mat-button-toggle routerLink=""><img src="/assets/img/logo_ru.png" class="logo" alt=""> Главная</mat-button-toggle>
+        <mat-button-toggle [matMenuTriggerFor]="menu">Учет техники</mat-button-toggle>
     </mat-button-toggle-group>
 
     <mat-menu #menu="matMenu">
@@ -10,7 +10,11 @@
         <button mat-menu-item routerLink="/offices">Представительства (table) </button>
         <button mat-menu-item routerLink="/testsort">Тест сортировки (test) </button>
     </mat-menu>
-</div>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+    </button>
+</mat-toolbar>
 <div >
   <router-outlet></router-outlet>
 </div>

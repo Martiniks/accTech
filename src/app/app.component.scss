@@ -1,4 +1,15 @@
 .my-menu{
-  /* padding: 2px;  Поля вокруг текста */
-  margin: 5px; /* Отступы вокруг блока */
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  font-size: 14px;
+}
+.logo{
+  height: 32px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+.example-spacer {
+  flex: 1 1 auto;
 }

@@ -22,6 +22,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select'
 import { OfficesEditComponent } from './components/offices-edit/offices-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DevicesContainer } from './components/devices/devices.container';
@@ -57,6 +60,9 @@ import { DevicesComponent } from './components/devices/devices.component';
         MatInputModule,
         MatButtonToggleModule,
         MatExpansionModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatSelectModule,
         FormsModule,
         ReactiveFormsModule,
     ],

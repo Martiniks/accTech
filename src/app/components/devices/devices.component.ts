@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
-import { DevicesData } from '../../interfaces';
+import { DevicesData, DevicesStat } from '../../interfaces';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
@@ -15,17 +15,23 @@ import { FormControl } from '@angular/forms';
 
 export class DevicesComponent implements AfterViewInit {
   dataSource = new MatTableDataSource<any>([]);
-  displayedColumns: string[] = ['podr_name', 'tip_name', 'model', 'inv_n', 'edit',];
+  displayedColumns: string[] = [
+    'podr_name', 'tip_name', 'model', 'inv_n', 'naimen',
+    'data_priobr', 'data_vvoda', 'place', 'fio', 'prim', 'status_name', 'edit',
+  ];
   iDevicesData: DevicesData | null = null;
   @ViewChild(MatSort) sort: MatSort | null = null;
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
   modelFilter = new FormControl('');
   tipNameFilter = new FormControl('');
+  statusFilter = new FormControl('');
+  statusName: DevicesStat[] = [];
 
   filterValues: any = {
     model: '',
-    tipName: ''
+    tipName: '',
+    status: '',
   }
 
   constructor() {
@@ -37,7 +43,9 @@ export class DevicesComponent implements AfterViewInit {
   @Input() set data(value: DevicesData | null) {
     if (value) {
       this.dataSource.data = value.arrDevices;
-      console.log("dataSource.filter =2>>",this.dataSource.filter);
+      this.statusName = value.arrStat;
+      //.push({id: "0", status_name: "Все"},{id: "99", status_name: "Все кроме списанных"});
+      console.log("statusName =2>>",this.statusName);
     }
     this.iDevicesData = value;
   };
@@ -69,13 +77,21 @@ export class DevicesComponent implements AfterViewInit {
           this.dataSource.filter = JSON.stringify(this.filterValues);
         }
       )
+    this.statusFilter.valueChanges
+      .subscribe(
+        status => {
+          this.filterValues.status = status;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+        }
+      )
   }
 
   private createFilter(): (data: any, filter: string) => boolean {
     let filterFunction = function (data:any, filter:string): boolean {
       let searchTerms = JSON.parse(filter);
       return data.model.indexOf(searchTerms.model) !== -1
-        && data.tip_name.indexOf(searchTerms.tipName) !== -1;
+        && data.tip_name.indexOf(searchTerms.tipName) !== -1
+        && data.status_name.indexOf(searchTerms.status) !== -1;
     }
     return filterFunction;
   }
