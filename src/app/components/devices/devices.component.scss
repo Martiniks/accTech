@@ -1,5 +1,5 @@
 .example-container {
-  height: 600px;
+  height: 570px;
   overflow: auto;
   margin: 10px;
 
@@ -11,6 +11,21 @@ table {
   width: 100%;
 }
 
+.div-row{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.div-block {
+  margin: 5px;
+  width: 400px;
+}
+.div-block-select{
+  margin: 5px;
+  width: 220px;
+  padding-right: 10px;
+}
+
 .mat-cell, .mat-header-cell {
   padding-left: 10px;
   border-right-width: 1px;
@@ -19,8 +34,8 @@ table {
 }
 
 .example-half-width {
-  margin: 10px;
-  width: 55%;
+  margin: 5px;
+  width: 400px;
 }
 
 th.mat-sort-header-sorted {

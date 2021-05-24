@@ -1,6 +1,6 @@
 <div class="example-half-width mat-elevation-z2">
     <mat-form-field appearance="outline">
-        <mat-label>Фильтр</mat-label>
+        <mat-label>Фильтр по всем данным</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="поиск" #input>
     </mat-form-field>
 </div>
@@ -13,10 +13,10 @@
           The actual rendered columns are set as a property on the row definition" -->
       <!-- Id Column -->
       <ng-container matColumnDef="edit">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Изменить </th>
           <td mat-cell *matCellDef="let element">
               <a routerLink="/detail/{{element.id}}">
-                  <button mat-raised-button color="accent"> Edit </button>
+                  <button mat-raised-button color="accent"> Ред. </button>
               </a>
           </td>
       </ng-container>

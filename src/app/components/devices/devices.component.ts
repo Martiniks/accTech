@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
-import { DevicesData, DevicesStat } from '../../interfaces';
+import { DevicesData, DevicesStat, DevicesTip } from '../../interfaces';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
@@ -26,12 +26,15 @@ export class DevicesComponent implements AfterViewInit {
   modelFilter = new FormControl('');
   tipNameFilter = new FormControl('');
   statusFilter = new FormControl('');
+  placeFilter = new FormControl('');
+  tipNames : DevicesTip[] =[];
   statusName: DevicesStat[] = [];
 
   filterValues: any = {
     model: '',
     tipName: '',
     status: '',
+    place: '',
   }
 
   constructor() {
@@ -44,6 +47,7 @@ export class DevicesComponent implements AfterViewInit {
     if (value) {
       this.dataSource.data = value.arrDevices;
       this.statusName = value.arrStat;
+      this.tipNames=value.arrTip;
       //.push({id: "0", status_name: "Все"},{id: "99", status_name: "Все кроме списанных"});
       console.log("statusName =2>>",this.statusName);
     }
@@ -84,13 +88,21 @@ export class DevicesComponent implements AfterViewInit {
           this.dataSource.filter = JSON.stringify(this.filterValues);
         }
       )
+    this.placeFilter.valueChanges
+      .subscribe(
+        place => {
+          this.filterValues.place = place;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+        }
+      )
   }
 
   private createFilter(): (data: any, filter: string) => boolean {
     let filterFunction = function (data:any, filter:string): boolean {
       let searchTerms = JSON.parse(filter);
-      return data.model.indexOf(searchTerms.model) !== -1
+      return data.model.toLowerCase().indexOf(searchTerms.model.toLowerCase()) !== -1
         && data.tip_name.indexOf(searchTerms.tipName) !== -1
+        && data.place.toLowerCase().indexOf(searchTerms.place.toLowerCase()) !== -1
         && data.status_name.indexOf(searchTerms.status) !== -1;
     }
     return filterFunction;
