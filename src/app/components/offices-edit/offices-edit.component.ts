@@ -31,7 +31,8 @@ export class OfficesEditComponent implements OnInit {
     if (!id) {
       return;
     }
-    this.httpService.getElement(+id).pipe(tap(val => console.log(val)))
+    const body = { podrId: id};
+    this.httpService.postElement(body).pipe(tap(val => console.log(val)))
       .subscribe(office => {
         this.office = office;
         this.cdr.markForCheck();

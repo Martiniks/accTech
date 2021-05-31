@@ -8,24 +8,26 @@ import { OfficesElement } from '../interfaces';
   providedIn: 'root',
 })
 export class HttpService {
-  private officesUrl = 'assets/office.json';  // URL to web api
+  private serverUrl = 'http://127.0.0.1';  // URL to web api
+  //private officesUrl = 'assets/office.json';  // URL to web api
 
   constructor(private http: HttpClient) { }
 
   getTab(): any {
-    return this.http.get('http://10.244.0.236/time2ang.php');
+    return this.http.get('http://127.0.0.1/time2ang.php');
+    //return this.http.get('http://10.244.0.236/time2ang.php');
     //return this.http.get('assets/offices.json');
   }
 
   getTabDevices(): any {
-    return this.http.get('http://10.244.0.236/devices2ang.php');
-    //return this.http.get('http://127.0.0.1/devices2ang.php');
+    //return this.http.get('http://10.244.0.236/devices2ang.php');
+    return this.http.get('http://127.0.0.1/devices2ang.php');
     //return this.http.get('assets/devices.json');
   }
 
 
 
-  /** GET hero by id. Will 404 if id not found */
+/*  /!** GET hero by id. Will 404 if id not found *!/
   getElement(id: number): Observable<OfficesElement> {
     //const url = `${this.officesUrl}/${id}`;
     const url = `${this.officesUrl}`;
@@ -34,7 +36,20 @@ export class HttpService {
 //      tap(_ => this.log(`fetched hero id=${id}`)),
 //      catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
+  }*/
+
+  /** Post: take office.obj from the server */
+  postElement(body: object): Observable<OfficesElement> {
+    console.log(body);
+    const url =`${this.serverUrl}/podr2edit.php`;
+    return this.http.post<OfficesElement>(url,body)
+      .pipe(
+      tap(data => console.log(`=${data}`)),
+//      tap(_ => this.log(`fetched hero id=${id}`)),
+//      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
   }
+
 
   /** PUT: update the hero on the server */
   updateElement(office: OfficesElement): any {
